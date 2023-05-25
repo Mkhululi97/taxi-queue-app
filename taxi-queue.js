@@ -1,6 +1,6 @@
-function TaxiQueue() {
-  let passengersCount = 0;
-  let numberOfTaxis = 0;
+function TaxiQueue(locStrPassenger, locStrTaxi) {
+  let passengersCount = locStrPassenger || 0;
+  let numberOfTaxis = locStrTaxi || 0;
   function joinQueue() {
     passengersCount++;
   }
