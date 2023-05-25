@@ -5,7 +5,14 @@ function TaxiQueue(locStrPassenger, locStrTaxi) {
     passengersCount++;
   }
 
-  function leaveQueue() {}
+  function leaveQueue() {
+    // check if the number of queue length is greater than 0.
+    // update the passengersCount variable and minus one from
+    //  the passengersCount number
+    if (queueLength() > 0) {
+      passengersCount = queueLength() - 1;
+    }
+  }
 
   function joinTaxiQueue() {
     numberOfTaxis++;
@@ -20,7 +27,6 @@ function TaxiQueue(locStrPassenger, locStrTaxi) {
   }
 
   function taxiDepart() {
-    // console.log();
     // check if the number of taxis in the queue is greater than zero and number of
     // passangers is greater than 11.
     // then.
