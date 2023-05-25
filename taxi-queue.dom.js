@@ -1,5 +1,6 @@
 // DOM element references
 const joinBtn = document.querySelector(".join_queue");
+const leaveBtn = document.querySelector(".leave_queue");
 const joinQueueBtn = document.querySelector(".join_taxi_queue");
 const departBtn = document.querySelector(".depart");
 const passengerCountEl = document.querySelector(".passenger_queue_count");
@@ -30,6 +31,11 @@ function joinButtonFunction() {
   passengerCountEl.innerHTML = taxiQueue.queueLength();
   setupLocalStorage("passenger_count", taxiQueue.queueLength());
 }
+function leaveButtonFunction() {
+  taxiQueue.leaveQueue();
+  passengerCountEl.innerHTML = taxiQueue.queueLength();
+  setupLocalStorage("passenger_count", taxiQueue.queueLength());
+}
 function joinQueueButtonFunction() {
   taxiQueue.joinTaxiQueue();
   taxiCountEl.innerHTML = taxiQueue.taxiQueueLength();
@@ -44,5 +50,6 @@ function departButtonFunction() {
 }
 // DOM events
 joinBtn.addEventListener("click", joinButtonFunction);
+leaveBtn.addEventListener("click", leaveButtonFunction);
 joinQueueBtn.addEventListener("click", joinQueueButtonFunction);
 departBtn.addEventListener("click", departButtonFunction);
