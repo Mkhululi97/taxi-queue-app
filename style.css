@@ -1,33 +1,40 @@
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background-color: darkgray
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: darkgray;
 }
 
-
 .count {
-	font-size: 4em;
-	padding: 0.1em;
-	border: 2px solid;
-	background-color: orchid;
-	border-radius: 0.1em;
+  font-size: 4em;
+  padding: 0.1em;
+  border: 2px solid;
+  background-color: orchid;
+  border-radius: 0.1em;
 }
 
 .section {
-	flex: 1;
-	background-color: steelblue;
-	padding: 2em;
-	margin: 1em;
-	border-radius: 0.5em;
+  flex: 1;
+  background-color: steelblue;
+  padding: 2em;
+  margin: 1em;
+  border-radius: 0.5em;
 }
 
 button {
-	padding: 1em;
-	border-radius: 0.5em;
-	font-weight: bold;
+  padding: 1em;
+  border-radius: 0.5em;
+  font-weight: bold;
+}
+.error-msg {
+  font-size: 1.8rem;
+  display: inline;
+  color: red;
+}
+.hidden {
+  display: none;
 }
 
 @media (min-width: 768px) {
-	.sections {
-		display: flex;
-	}
+  .sections {
+    display: flex;
+  }
 }

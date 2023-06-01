@@ -32,12 +32,22 @@ function TaxiQueue(locStrPassenger, locStrTaxi) {
     // then.
     // minus one taxi from the queue each time
     // minus 12 passengers each time.
-    if (queueLength() > 11 && taxiQueueLength()) {
+    if (queueLength() > 11 && taxiQueueLength() > 0) {
       passengersCount = queueLength() - 12;
       numberOfTaxis = taxiQueueLength() - 1;
     }
   }
-
+  function errorTxt() {
+    if (queueLength() < 12 && taxiQueueLength() < 1) {
+      return "not enough passangers and there're no taxi's in the queue";
+    }
+    if (queueLength() < 12) {
+      return "not enough passangers";
+    }
+    if (taxiQueueLength() < 1) {
+      return "no taxi's in the queue";
+    }
+  }
   return {
     joinQueue,
     leaveQueue,
@@ -45,5 +55,6 @@ function TaxiQueue(locStrPassenger, locStrTaxi) {
     queueLength,
     taxiQueueLength,
     taxiDepart,
+    errorTxt,
   };
 }

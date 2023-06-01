@@ -5,8 +5,11 @@ const joinQueueBtn = document.querySelector(".join_taxi_queue");
 const departBtn = document.querySelector(".depart");
 const passengerCountEl = document.querySelector(".passenger_queue_count");
 const taxiCountEl = document.querySelector(".taxi_queue_count");
+const errorEl = document.querySelector(".error-msg");
+const errorContainer = document.querySelector(".error-container");
 let locStrPassenger = 0;
 let locStrTaxi = 0;
+
 // Functions
 function setupLocalStorage(key, value) {
   localStorage.setItem(key, value);
@@ -15,6 +18,7 @@ function getLocalStorage() {
   passengerCountEl.innerHTML = locStrPassenger;
   taxiCountEl.innerHTML = locStrTaxi;
 }
+
 if (localStorage.getItem("passenger_count") || 0) {
   locStrPassenger = localStorage.getItem("passenger_count");
 }
@@ -42,6 +46,13 @@ function joinQueueButtonFunction() {
   setupLocalStorage("taxi_count", taxiQueue.taxiQueueLength());
 }
 function departButtonFunction() {
+  if (taxiQueue.errorTxt()) {
+    errorEl.textContent = taxiQueue.errorTxt();
+    errorContainer.classList.remove("hidden");
+    setTimeout(function () {
+      errorContainer.classList.add("hidden");
+    }, 3400);
+  }
   taxiQueue.taxiDepart();
   passengerCountEl.innerHTML = taxiQueue.queueLength();
   taxiCountEl.innerHTML = taxiQueue.taxiQueueLength();
